@@ -6,6 +6,7 @@ import {
   Container,
   Header,
   Title,
+  Form,
 } from './styles'
 
 export function Register() {
@@ -14,9 +15,15 @@ export function Register() {
       <Header>
         <Title>Cadastro</Title>
       </Header>
-
-
-
+      
+      <Form>
+        <Input
+          placeholder='Nome'
+        />
+        <Input
+          placeholder='Preço'
+        />
+      </Form>
     </Container>
   )
 }
