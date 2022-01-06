@@ -16,6 +16,10 @@ import {
 export function Register() {
   const [transactionType, setTransactionType] = useState('')
 
+  function handleTransactionsTypeSelect(type: 'up' | 'down') {
+    setTransactionType(type)
+  }
+
   return (
     <Container>
       <Header>
@@ -35,10 +39,14 @@ export function Register() {
             <TransactionTypeButton 
               title='Income'
               type='up'
+              onPress={() => handleTransactionsTypeSelect('up')}
+              isActive={transactionType === 'up'}
             />
             <TransactionTypeButton 
               title='Outcome'
               type='down'
+              onPress={() => handleTransactionsTypeSelect('down')}
+              isActive={transactionType === 'down'}
             />
           </TransactionsTypes>
         </Fields>
