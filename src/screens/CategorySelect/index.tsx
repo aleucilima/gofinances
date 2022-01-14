@@ -20,7 +20,7 @@ interface Category {
 }
 
 interface Props {
-  category: string;
+  category: Category;
   setCategory: (category: Category) => void;
   closeSelectCategory: () => void;
 }
