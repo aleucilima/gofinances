@@ -68,7 +68,7 @@ export function Register() {
           </TransactionsTypes>
 
           <CategorySelectButton
-            title='Categoria'
+            title={category.name}
             onPress={handleOpenSelectCategoryModal}
           />
         </Fields>
@@ -77,7 +77,10 @@ export function Register() {
         />
       </Form>
 
-      <Modal visible={categoryModalOpen}>
+      <Modal 
+        visible={categoryModalOpen}
+        statusBarTranslucent
+      >
         <CategorySelect 
           category={category}
           setCategory={setCategory}
