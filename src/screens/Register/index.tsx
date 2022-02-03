@@ -6,6 +6,7 @@ import {
   Alert
 } from 'react-native'
 import * as Yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 
 import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton'
@@ -28,6 +29,16 @@ interface FormData {
   [name: string]: any
 }
 
+const schema = Yup.object().shape({
+  name: Yup
+    .string()
+    .required('O nome é obrigatório'),
+  amount: Yup
+    .number()
+    .typeError('Informe um valor numérico')
+    .positive('O valor não pode ser negativo')
+})
+
 export function Register() {
   const [transactionType, setTransactionType] = useState('')
   const [categoryModalOpen, setCategoryModalOpen] = useState(false)
@@ -40,7 +51,10 @@ export function Register() {
   const { 
     control,
     handleSubmit,
-  } = useForm()
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schema)
+  })
 
   function handleTransactionsTypeSelect(type: 'up' | 'down') {
     setTransactionType(type)
@@ -90,12 +104,14 @@ export function Register() {
               placeholder='Nome'
               autoCapitalize='sentences'
               autoCorrect={false}
+              error={errors.name && errors.name.message}
             />
             <InputForm
               name="amount"
               control={control}
               placeholder='Preço'
               keyboardType='numeric'
+              error={errors.amount && errors.amount.message}
             />
 
             <TransactionsTypes>
