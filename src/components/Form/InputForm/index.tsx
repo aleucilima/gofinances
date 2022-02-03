@@ -19,6 +19,7 @@ export function InputForm({
   return (
     <Container>
       <Controller
+        name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
           <Input 
@@ -27,7 +28,6 @@ export function InputForm({
             {...rest}
           />
         )}
-        name={name}
       />
     </Container>
   )
