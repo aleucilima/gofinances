@@ -52,14 +52,11 @@ export function Register() {
   const { navigate }: NavigationProp<ParamListBase> = useNavigation()
   const [transactionType, setTransactionType] = useState('')
   const [categoryModalOpen, setCategoryModalOpen] = useState(false)
-  
-  const dataKey = '@gofinances:transactions'
 
   const [category, setCategory] = useState({
     key: 'category',
     name: 'Categoria'
   })
-
 
   const { 
     control,
@@ -101,15 +98,16 @@ export function Register() {
     }
 
     try {
+      const dataKey = '@gofinances:transactions'
       const data = await AsyncStorage.getItem(dataKey)
       const currentData = data ? JSON.parse(data) : []
 
-      const dataFormated = [
+      const dataFormatted = [
         ...currentData,
         newTransaction
       ]
 
-      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormated))
+      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted))
 
       reset()
       setTransactionType('')
