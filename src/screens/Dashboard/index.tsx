@@ -28,7 +28,6 @@ import {
 export function Dashboard() {
   const [data, setData] = useState<DataListProps[]>([]);
   
-  
   async function loadTransactions(){
     const dataKey = '@gofinances:transactions'
     const response = await AsyncStorage.getItem(dataKey)
