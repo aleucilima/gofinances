@@ -5,6 +5,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import { useFocusEffect } from '@react-navigation/native';
 import { useTheme } from 'styled-components';
 import { VictoryPie } from 'victory-native';
+import { addMonths } from 'date-fns';
 
 import { HistoryCard } from '../../components/HistoryCard';
 
@@ -41,9 +42,19 @@ interface CategoryData {
 }
 
 export function Resume() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([]);
 
   const theme = useTheme();
+
+  function handleDateChange(action: 'next' | 'prev') {
+    if(action === 'next') {
+      const newDate = addMonths(selectedDate, 1);
+      setSelectedDate(newDate);
+    } else {
+
+    }
+  }
 
   async function loadData() {
     const dataKey = '@gofinances:transactions';
@@ -114,13 +125,13 @@ export function Resume() {
         }}
       >
         <MonthSelect>
-          <MonthSelectButton>
+          <MonthSelectButton onPress={() => handleDateChange('prev')}>
             <MonthSelectIcon name="chevron-left"/>
           </MonthSelectButton>
 
           <Month>Maio</Month>
 
-          <MonthSelectButton>
+          <MonthSelectButton onPress={() => handleDateChange('next')}>
             <MonthSelectIcon name="chevron-right"/>
           </MonthSelectButton>
         </MonthSelect>
