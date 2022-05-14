@@ -19,6 +19,7 @@ interface User {
 
 interface IAuthContextData {
   user: User;
+  signInWithGoogle(): Promise<void>;
 }
 
 const AuthContext = createContext({} as IAuthContextData);
@@ -32,14 +33,15 @@ function AuthProvider({ children }: AuthProviderProps) {
 
   async function signInWithGoogle() {
     try {
-      const CLIENT_ID = '';
-      const REDIRECT_URI = '';
-      const RESPONSE_TYPE = '';
-      const SCOPE = '';
+      const CLIENT_ID = '1000501326723-3ioe78gtps5j7mgjlo8ke5597jr9jhhc.apps.googleusercontent.com';
+      const REDIRECT_URI = 'https://auth.expo.io/@aleucilima/gofinances';
+      const RESPONSE_TYPE = 'token';
+      const SCOPE = encodeURI('profile email');
 
       const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
 
-      AuthSession.startAsync({ authUrl });
+      const response = await AuthSession.startAsync({ authUrl });
+      
 
     } catch (error) {
       throw new Error(error as any);
@@ -47,7 +49,10 @@ function AuthProvider({ children }: AuthProviderProps) {
   }
 
   return (
-    <AuthContext.Provider value={{ user }}>
+    <AuthContext.Provider value={{ 
+      user, 
+      signInWithGoogle 
+    }}>
       { children }
     </AuthContext.Provider>
   )
