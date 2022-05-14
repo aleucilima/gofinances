@@ -15,6 +15,7 @@
     "date-fns": "^2.28.0",
     "expo": "~42.0.1",
     "expo-app-loading": "1.1.2",
+    "expo-application": "~3.2.0",
     "expo-auth-session": "~3.3.1",
     "expo-font": "~9.2.1",
     "expo-random": "~11.2.0",

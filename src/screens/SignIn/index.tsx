@@ -24,7 +24,6 @@ export function SignIn() {
   const { signInWithGoogle } = useAuth();
 
   async function handleSignInWithGoogle() {
-    console.log('Aqui')
     try {
       await signInWithGoogle();
 
@@ -61,7 +60,7 @@ export function SignIn() {
           <SignInSocialButton 
             title="Entrar com Google"
             svg={GoogleSvg}
-            onPress={() => handleSignInWithGoogle()}
+            onPress={handleSignInWithGoogle}
           />
 
           <SignInSocialButton 
