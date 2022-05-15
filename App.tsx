@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'styled-components';
 import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
@@ -14,7 +13,8 @@ import {
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
 
-import { AppRoutes } from './src/routes/app.routes';
+import { Routes } from './src/routes';
+
 import theme from './src/global/styles/theme';
 
 import { SignIn } from './src/screens/SignIn';
@@ -34,14 +34,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <StatusBar style="light" />
-
-        <AuthProvider>
-          <SignIn />
-        </AuthProvider>
-
-      </NavigationContainer>
+      <StatusBar style="light" />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider> 
   )
 }
