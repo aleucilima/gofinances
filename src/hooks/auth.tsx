@@ -7,7 +7,6 @@ import React, {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { CLIENT_ID } = process.env;
-const { REDIRECT_URI } = process.env;
 
 import * as WebBrowser from 'expo-web-browser';
 import * as AuthSession from 'expo-auth-session';
@@ -46,15 +45,15 @@ function AuthProvider({ children }: AuthProviderProps) {
     try {
       const authParams = new URLSearchParams({
         client_id: CLIENT_ID,
-        redirect_uri: REDIRECT_URI,
+        redirect_uri: AuthSession.makeRedirectUri({ useProxy: true }),
         response_type: 'token',
         scope: encodeURI('profile email')
       } as any);
-
+      
       const { type, params } = await AuthSession.startAsync({
         authUrl: `https://accounts.google.com/o/oauth2/v2/auth?${authParams.toString()}`,
       }) as AuthorizationResponse;
-
+      
       if (type === 'success') {
         const response = await fetch(
           `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${params.access_token}`,
