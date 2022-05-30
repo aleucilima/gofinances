@@ -4,6 +4,7 @@ This application is a financial manager, where you can register incoming and out
 
 ## Technologies used
 
+* Expo Go
 * TypeScript
 * React Native
 * Styled Components
