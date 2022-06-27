@@ -4,7 +4,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
-    "start": "react-native start"
+    "start": "expo start --dev-client"
   },
   "dependencies": {
     "@expo-google-fonts/poppins": "^0.2.0",
@@ -54,5 +54,7 @@
     "@types/styled-components-react-native": "^5.1.1",
     "typescript": "~4.0.0"
   },
-  "private": true
+  "private": true,
+  "name": "gofinances",
+  "version": "1.0.0"
 }

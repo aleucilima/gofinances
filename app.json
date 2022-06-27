@@ -6,7 +6,13 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.aleucilima.gofinances"
+    },
+    "ios": {
+      "bundleIdentifier": "com.aleucilima.gofinances"
+    }
   },
   "name": "gofinances"
 }
