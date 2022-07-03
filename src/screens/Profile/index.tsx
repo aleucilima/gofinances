@@ -6,7 +6,7 @@ export function Profile() {
     <View>
       <Text>Profile</Text>
 
-      <TextInput placeholder="Name" autoCorrect={false}/>
+      <TextInput placeholder="Nome" autoCorrect={false}/>
       <TextInput placeholder="Email" />
 
       <Button title="Save" onPress={() => {}}/>
