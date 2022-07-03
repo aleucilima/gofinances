@@ -13,6 +13,5 @@
     "ios": {
       "bundleIdentifier": "com.aleucilima.gofinances"
     }
-  },
-  "name": "gofinances"
+  }
 }

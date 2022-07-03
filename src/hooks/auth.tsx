@@ -48,6 +48,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   const userStorageKey = '@gofinances:user';
   
   async function signInWithGoogle() {
+    console.log(CLIENT_ID)
     try {
       const authParams = new URLSearchParams({
         client_id: CLIENT_ID,
