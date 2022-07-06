@@ -64,11 +64,5 @@
   "resolutions": {
     "@types/react": "^17"
   },
-  "jest": {
-    "preset": "jest-expo",
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-native/extend-expect"
-    ]
-  },
   "private": true
 }
