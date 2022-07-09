@@ -5,6 +5,7 @@ module.exports = {
     "/android",
     "/ios",
   ],
+  setupFiles: ['<rootDir>/jestSetupFile.js'],
   setupFilesAfterEnv: [
     "@testing-library/jest-native/extend-expect",
     "jest-styled-components"

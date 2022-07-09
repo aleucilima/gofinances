@@ -8,6 +8,7 @@ import React, {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { CLIENT_ID } = process.env;
+const { REDIRECT_URI } = process.env;
 
 import * as WebBrowser from 'expo-web-browser';
 import * as AuthSession from 'expo-auth-session';
@@ -48,11 +49,10 @@ function AuthProvider({ children }: AuthProviderProps) {
   const userStorageKey = '@gofinances:user';
   
   async function signInWithGoogle() {
-    console.log(CLIENT_ID)
     try {
       const authParams = new URLSearchParams({
         client_id: CLIENT_ID,
-        redirect_uri: AuthSession.makeRedirectUri({ useProxy: true }),
+        redirect_uri: REDIRECT_URI,
         response_type: 'token',
         scope: encodeURI('profile email')
       } as any);
