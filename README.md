@@ -1,4 +1,4 @@
-# gofinances
+# gofinances v1
 
 This application is a financial manager, where you can register incoming and outgoing transactions of values from your portfolio.
 
