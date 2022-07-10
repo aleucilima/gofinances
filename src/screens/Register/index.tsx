@@ -7,7 +7,6 @@ import * as Yup from 'yup'
 
 import { useAuth } from '../../hooks/auth'
 
-
 import { 
   Keyboard, 
   Modal, 
@@ -173,18 +172,20 @@ export function Register() {
             </TransactionsTypes>
 
             <CategorySelectButton
+              testID='button-category'
               title={category.name}
               onPress={handleOpenSelectCategoryModal}
             />
           </Fields>
           
-          <Button 
+          <Button
             title='Enviar'
             onPress={handleSubmit(handleRegister)}
           />
         </Form>
 
         <Modal 
+          testID='modal-category'
           visible={categoryModalOpen}
           statusBarTranslucent
         >
