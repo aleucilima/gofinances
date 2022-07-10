@@ -1,4 +1,5 @@
-# gofinances v1
+![alt text](./assets/goFinances.png)
+# gofinances
 
 This application is a financial manager, where you can register incoming and outgoing transactions of values from your portfolio.
 
@@ -11,4 +12,3 @@ This application is a financial manager, where you can register incoming and out
 * AsyncStorage
 * Authentication with Google and AppleID
 
-![alt text](./assets/goFinances.png)
