@@ -10,5 +10,6 @@ This application is a financial manager, where you can register incoming and out
 * React Native
 * Styled Components
 * AsyncStorage
-* Authentication with Google and AppleID
+* Authentication with Google
+* Authentication with AppleID
 
