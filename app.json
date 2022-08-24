@@ -4,14 +4,17 @@
     "slug": "gofinances",
     "scheme": "gofinances",
     "version": "1.0.0",
+    "icon": "./assets/logo.png",
     "assetBundlePatterns": [
       "**/*"
     ],
     "android": {
-      "package": "com.aleucilima.gofinances"
+      "package": "com.aleucilima.gofinances",
+      "buildNumber": "1.0.0"
     },
     "ios": {
-      "bundleIdentifier": "com.aleucilima.gofinances"
+      "bundleIdentifier": "com.aleucilima.gofinances",
+      "versionCode": 1
     }
   }
 }
