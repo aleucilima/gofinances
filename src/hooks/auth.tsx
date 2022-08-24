@@ -52,7 +52,7 @@ function AuthProvider({ children }: AuthProviderProps) {
     try {
       const authParams = new URLSearchParams({
         client_id: CLIENT_ID,
-        redirect_uri: REDIRECT_URI,
+        redirect_uri: AuthSession.makeRedirectUri({ useProxy: true }),
         response_type: 'token',
         scope: encodeURI('profile email')
       } as any);
